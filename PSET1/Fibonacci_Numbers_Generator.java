@@ -7,7 +7,7 @@ public class Fibonacci{
         for (int i = 0; i<n;i++){
             if (i==0){
                 fibArray[i] = 0;
-            }else if (i==1){
+            }else if (i==1){ // must put else if to prevent execution of line 13
                 fibArray[i] = 1;
             }else{
                 fibArray[i] = fibArray[i-1] + fibArray[i-2];
@@ -16,7 +16,7 @@ public class Fibonacci{
         for(int i=0;i<n;i++){
             fibString += fibArray[i] + ",";
         }
-        return fibString.substring(0, fibString.length()-1);  
+        return fibString.substring(0, fibString.length()-1); // remove the last character ","  
     }
 }
 
