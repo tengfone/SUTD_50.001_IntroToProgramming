@@ -5,12 +5,22 @@ public class Pset1 {
         char tempArray[] = sIn.toCharArray();
         Arrays.sort(tempArray);
         for(int i =0;i<tempArray.length-1;i++){
-            if(tempArray[i]==tempArray[i+1]){
+            if(tempArray[i]==tempArray[i+1])
                 return false;
-            }
-        }
+	}
         return true;
     }
+	
+	// another method for isAllCharacterUnique:
+	public static boolean isAllCharacterUnique2(String sIn){
+	for (int i = 0; i < sIn.length(); i++){
+		for (int j = 0; j < sIn.length() - 1; j ++)
+			if (sIn.charAt(i) == sIn.charAt(j))
+				return false;
+		}
+	return true;
+	}
+	
 	public static boolean isPermutation(String sIn1, String sIn2) {
 	  //todo: add your implementation
         char[] array1 = sIn1.toCharArray();
@@ -27,5 +37,5 @@ public class Pset1 {
                 return false;
         }
         return true;
-	}
+	}	
 }
