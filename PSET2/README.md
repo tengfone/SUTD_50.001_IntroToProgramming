@@ -300,15 +300,20 @@ Throughout this problem set we will be implementing a simple midi keyboard. We w
 4.	Record sequences of notes and play them back.
 We have provided you with code that wraps a midi device, some abstractions for dealing with musical notes, and some Java Applet code that listens for keypresses. Our applet code calls several methods of PianoMachine; you should keep those methods as the entry points for PianoMachine and not change their signatures or specs (as we will use these functions for automated testing.) Do not modify any code inside the 'midi' or 'piano' packages. Do not modify any code in the PianoApplet class. Please note that we have provided a method, Midi.history(), which gives a text output from the piano and can be used for testing.
 Write test cases for these methods. You will find Midi.history() useful for the tests in this assignment.
+
 Problem 1: Piano Keys
 Our midi piano should allow us to play a set of pitches {C, C#, D, ... A#, B} using the keys {'1', '2', ... '-', '='} respectively. When one of these keys is pressed, a note should begin if it isn't already sounding; likewise, when such a key is released, a note should end if it is currently sounding. We provide method signatures for PianoMachine.beginNote and PianoMachine.endNote, which will be triggered by appropriate key presses and releases. Use those methods as entry points in your implementation.
+
 [20 points] Add this functionality by implementing the PianoMachine.beginNote and PianoMachine.endNote methods, as well as any helper methods, and adding any necessary state to PianoMachine. To start you off, we've given a provisional implementation of beginNote and endNote which always plays middle 'C'.
 Problem 2: Switching Instruments
 The midi piano should be able to switch instruments. The 'I' key should switch our instrument mode to the next instrument in a list, or back to the start if we're at the end. We have mapped the 'I' key to PianoMachine.changeInstrument; use this method in your implementation. 
+
 [20 points] Add state to the PianoMachine class which reflects the instrument mode, fill in the changeInstrument method, and update any other code necessary so that your piano can switch instruments as specified. You may find the Instrument enum in the package 'midi' to be useful.
 Problem 3: Switching Octaves
 Pressing the 'C' and 'V' keys should shift the notes that the keys play down and up, respectively, by one octave (12 semitones). We should be able to shift by two octaves, maximum, in either direction from the starting pitches. We have mapped the appropriate keys to PianoMachine.shiftUp and PianoMachine.shiftDown; use these methods in your solution.
+
 [20 points] Add this functionality by adding the appropriate state to PianoMachine, implementing the shiftUp and shiftDown methods, and updating any other methods necessary.
 Problem 4: Recording and Playback
 The piano should have the ability to record and playback sequences of notes, preserving the rhythm they were played with. When you make a new recording it should replace the previous one. 'R' should toggle record mode on and off, and 'P' should trigger playback. As before, we've provided you with signatures for PianoMachine.record and PianoMachine.playback as entry points; use these methods.
+
 [40 points] Add this functionality, by making PianoMachine keep track of the necessary state, implementing the playback and record methods, and adding any other necessary code. You might find the NoteEvent class useful. 
